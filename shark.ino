@@ -1,3 +1,5 @@
+#include "remote.h"
+
 #define MOTOR_LEFT_ENABLE_PIN 3
 #define MOTOR_LEFT_PIN1 4
 #define MOTOR_LEFT_PIN2 5
@@ -8,17 +10,10 @@
 #define SONAR_TRIGGER_PIN A2
 #define SONAR_ECHO_PIN A3
 
-#define MSG_SYNC_STR ("abcd")
-
 struct state_t {
   float sonar_dist;
   long sonar_read_deadline;
   long remote_read_deadline;
-};
-
-struct remote_msg_t {
-  float speed; // 0..1
-  float angle; // -90..90
 };
 
 void setup() {
