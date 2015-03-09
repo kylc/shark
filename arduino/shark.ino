@@ -29,7 +29,7 @@ void setup() {
 
   digitalWrite(MOTOR_LEFT_ENABLE_PIN, 1);
   digitalWrite(MOTOR_RIGHT_ENABLE_PIN, 1);
-  
+
   Serial.begin(57600);
 }
 
@@ -49,6 +49,9 @@ float read_sonar_dist() {
   return dist;
 }
 
+/**
+ * Read a message from the serial link.
+ */
 bool read_remote_msg(struct remote_msg_t *msg) {
   // Make sure there is data available in the buffer.
   if(Serial.available() < sizeof(struct remote_msg_t)) {
